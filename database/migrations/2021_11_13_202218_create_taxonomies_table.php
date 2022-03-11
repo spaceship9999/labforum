@@ -15,8 +15,8 @@ class CreateTaxonomiesTable extends Migration
     {
         Schema::create('taxonomies', function (Blueprint $table) {
             $table->id();
-            $table->integer('parent_tax');
-            $table->integer('children_tax');
+            $table->integer('parent_tax')->nullable();
+            $table->integer('children_tax')->nullable();
             $table->string('name');
             $table->text('introduction')->nullable();
             $table->json('data')->nullable();

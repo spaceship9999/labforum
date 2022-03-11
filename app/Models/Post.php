@@ -10,6 +10,7 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $casts = ['data' => 'object'];
     public function getParentsAttribute()
     {
         if ($this->hasParent()) {
