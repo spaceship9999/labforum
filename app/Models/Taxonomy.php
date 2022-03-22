@@ -4,10 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 
 class Taxonomy extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        'data' => 'object',
+    ];
 
     public function posts() {
         return $this->hasMany(Post::class);
