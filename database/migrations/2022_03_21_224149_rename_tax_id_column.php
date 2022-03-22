@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolesTable extends Migration
+class RenameTaxIdColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->timestamps();
+        Schema::table('posts', function (Blueprint $table) {
+            $table->renameColumn('tax_id', 'taxonomy_id');
         });
     }
 
@@ -28,6 +25,9 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        //
+        Schema::table('posts', function (Blueprint $table) {
+            $table->renameColumn('taxonomy_id', 'tax_id');
+        });
     }
 }
