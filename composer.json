@@ -1,9 +1,25 @@
 {
-    "name": "laravel/laravel",
+    "name": "spaceship9999/labforum",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "Headless forum software based on Laravel",
+    "keywords": ["framework", "laravel", "headless", "forum"],
     "license": "MIT",
+    "version": "0.0.1-alpha1",
+    "authors": [
+        {
+            "name" : "Raynold Chow",
+            "email": "raynold_chow@hotmail.com",
+            "homepage": "https://www.raynoldchow.dev/",
+            "role": "Full Stack Developer"
+        }
+    ],
+    "funding": [
+        {
+            "type": "patreon",
+            "url": "https://www.patreon.com/spaceship9999"
+        }
+    ],
+    "homepage": "https://www.github.com/spaceship9999/labforum",
     "require": {
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
@@ -16,6 +32,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
+        "doctrine/dbal": "^3.3",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",

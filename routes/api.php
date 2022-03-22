@@ -23,24 +23,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Route for all users
 
 // - Authorisation
-Route::group(['prefix' => 'auth', 'middleware' => 'throttle:30:1'], function() {
+Route::group(['prefix' => 'auth', 'middleware' => 'throttle:30,1'], function() {
     Route::post('login', [Controllers\Auth\LoginController::class, "login"]);
     Route::get('logout', [Controllers\Auth\LoginController::class, "logout"])->middleware('auth:api');
     Route::get('attempts', [Controllers\Auth\LoginController::class, "getAttemptDetails"]);
 });
 
-Route::get('test', function() {
-    if (Auth::check()) {
-        echo 'yes';
-    }
-    else echo 'no';
-});
-
 // - Categories listing
-Route::group(['prefix' => 'categories'], function() {
+Route::group(['prefix' => 'category'], function() {
     Route::get('/', [Controllers\TaxonomyController::class, 'listCategories']);
+    Route::get('/featured', [Controllers\TaxonomyController::class, 'getFeaturedCategories']);
+    Route::get('/{id}',[Controllers\TaxonomyController::class, 'getTaxonomyBySlug']);
 });
-
 
 //Routes for all registered users
 Route::group(['middleware' => 'auth:api'], function() {
