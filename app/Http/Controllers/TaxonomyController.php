@@ -67,6 +67,7 @@ class TaxonomyController extends Controller
             'current_page' => $array->currentPage(),
             'last_page' => $array->lastPage(),
             'num_posts' => $array->total(),
+            'post_per_page' => $pagination,
         );
     }
 
