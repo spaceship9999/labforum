@@ -85,6 +85,7 @@ class TaxonomyController extends Controller
         }
 
         if (Auth::guard('api')->check()) {
+            Auth::loginUsingId(Auth::guard('api')->user()->id);
             if ($this->isTaxonomyRestricted($id)) {
                 if (!$this->canAccessTaxonomy($request->user(), $slug) && !$request->user()->can('admin_site')) {
                     return $this->noAccessRightResponse();

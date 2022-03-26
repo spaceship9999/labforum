@@ -33,7 +33,7 @@ Route::group(['prefix' => 'auth', 'middleware' => 'throttle:30,1'], function() {
 Route::group(['prefix' => 'category'], function() {
     Route::get('/', [Controllers\TaxonomyController::class, 'listCategories']);
     Route::get('/featured', [Controllers\TaxonomyController::class, 'getFeaturedCategories']);
-    Route::get('/{id}',[Controllers\TaxonomyController::class, 'getTaxonomyBySlug']);
+    Route::get('/{slug}',[Controllers\TaxonomyController::class, 'getTaxonomyBySlug']);
 });
 
 //Routes for all registered users
